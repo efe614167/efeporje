@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Bir Sorum Var 💌</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ffd6e8, #fff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+.box {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    width: 90%;
+    max-width: 420px;
+}
+button {
+    margin: 10px;
+    padding: 12px 22px;
+    border: none;
+    border-radius: 25px;
+    background: #ff5c8a;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+button:hover {
+    background: #ff3366;
+}
+p {
+    line-height: 1.5;
+}
+</style>
+</head>
+<body>
+
+<div class="box" id="content">
+    <h2>Merhaba Büşra Hanım 🌸</h2>
+    <p>Küçük bir oyuna hoş geldiniz</p>
+    <button onclick="q1()">Devam Et</button>
+</div>
+
+<script>
+const phone = "905421714161";
+
+function q1() {
+    content.innerHTML = `
+    <h2>İlk soru 🎂</h2>
+    <p>Doğum günüm hangi gün?</p>
+    <button onclick="q2()">3 Temmuz</button>
+    <button onclick="q2()">12 Mayıs</button>
+    <button onclick="q2()">20 Kasım</button>
+    `;
+}
+
+function q2() {
+    content.innerHTML = `
+    <h2>İkinci soru 🎈</h2>
+    <p>Kaç yaşındayım?</p>
+    <button onclick="final()">18</button>
+    <button onclick="final()">20</button>
+    <button onclick="final()">22</button>
+    `;
+}
+
+function final() {
+    content.innerHTML = `
+    <h2>Bir şey söylemek istiyorum 💖</h2>
+    <p>
+    Merhaba Büşra,<br><br>
+    Ne kadar doğru kelimeleri bulabilirim bilmiyorum ama şunu biliyorum:<br>
+    Son dönemde beni en mutlu eden insan sensin.<br><br>
+    Benim için gerçekten çok değerlisin.<br>
+    Beni çok kısa sürede etkiledin ve bunu hiç fark etmeden yaptın.<br>
+    Sanırım sana âşık oldum.<br><br>
+    Sadece çok güzel olduğun için değil;<br>
+    aynı zamanda çok düşünceli, çok özel ve gerçekten harika biri olduğun için…<br><br>
+    Seni hayatımda görmek istiyorum.<br>
+    Benimle birlikte olur musun?<br>
+    Benim sevgilim olur musun? ❤️
+    </p>
+    <button onclick="send('Evet dedi 💖')">Evet ❤️</button>
+    <button onclick="send('Hayır dedi…')">Hayır 💔</button>
+    `;
+}
+
+function send(msg) {
+    window.location.href =
+    "https://wa.me/" + phone + "?text=" + encodeURIComponent(msg);
+}
+</script>
+
+</body>
+</html>
