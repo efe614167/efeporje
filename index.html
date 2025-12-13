@@ -1,11 +1,61 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Bir Sorum Var 💌</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ffd6e8, #fff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+.box {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    width: 90%;
+    max-width: 420px;
+}
+button {
+    margin: 10px;
+    padding: 12px 22px;
+    border: none;
+    border-radius: 25px;
+    background: #ff5c8a;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+button:hover {
+    background: #ff3366;
+}
+p {
+    line-height: 1.5;
+}
+</style>
+</head>
+<body>
+
+<div class="box" id="content">
+    <h2>Merhaba Büşra Hanım 🌸</h2>
+    <p>Küçük bir oyuna hoş geldiniz</p>
+    <button onclick="q1()">Devam Et</button>
+</div>
+
 <script>
 const phone = "905421714161";
+const content = document.getElementById('content'); // <-- bu çok önemli
 
 function q1() {
     content.innerHTML = `
     <h2>İlk soru 🎂</h2>
     <p>Doğum günüm hangi gün?</p>
-    <button onclick="q2(true)">3 Temmuz</button>  <!-- doğru cevap -->
+    <button onclick="q2(true)">3 Temmuz</button>
     <button onclick="q2(false)">12 Mayıs</button>
     <button onclick="q2(false)">20 Kasım</button>
     `;
@@ -21,7 +71,7 @@ function q2(correct) {
     content.innerHTML = `
     <h2>İkinci soru 🎈</h2>
     <p>Kaç yaşındayım?</p>
-    <button onclick="final(true)">18</button>  <!-- doğru cevap -->
+    <button onclick="final(true)">18</button>
     <button onclick="final(false)">20</button>
     <button onclick="final(false)">22</button>
     `;
@@ -59,3 +109,6 @@ function send(msg) {
     "https://wa.me/" + phone + "?text=" + encodeURIComponent(msg);
 }
 </script>
+
+</body>
+</html>
