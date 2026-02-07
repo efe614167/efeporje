@@ -13,36 +13,25 @@ body {
   text-align: center;
 }
 
-/* YAVAŞ GELME ANİMASYONU */
+/* YAVAŞ GELME */
 .fade {
   opacity: 0;
   transform: translateY(30px);
   animation: fadeIn 1.5s forwards;
 }
-
 .delay1 { animation-delay: 0.5s; }
 .delay2 { animation-delay: 1.5s; }
 .delay3 { animation-delay: 2.5s; }
 
 @keyframes fadeIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.hero {
-  padding: 90px 20px;
-}
+.hero { padding: 90px 20px; }
 
 .hero h1 {
   font-size: 52px;
   color: #c94c6a;
-}
-
-.hero p {
-  font-size: 18px;
-  opacity: 0.8;
 }
 
 .hero button {
@@ -68,13 +57,12 @@ body {
   border-radius: 20px;
   box-shadow: 0 12px 25px rgba(0,0,0,0.15);
   opacity: 0;
-  transform: scale(0.9);
   animation: photoIn 1.5s forwards;
 }
 
-.gallery img:nth-child(1){animation-delay:0.3s}
-.gallery img:nth-child(2){animation-delay:0.6s}
-.gallery img:nth-child(3){animation-delay:0.9s}
+.gallery img:nth-child(1){animation-delay:.3s}
+.gallery img:nth-child(2){animation-delay:.6s}
+.gallery img:nth-child(3){animation-delay:.9s}
 .gallery img:nth-child(4){animation-delay:1.2s}
 .gallery img:nth-child(5){animation-delay:1.5s}
 .gallery img:nth-child(6){animation-delay:1.8s}
@@ -82,26 +70,11 @@ body {
 .gallery img:nth-child(8){animation-delay:2.4s}
 
 @keyframes photoIn {
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+  to { opacity: 1; }
 }
 
 .memories {
   padding: 60px 25px;
-}
-
-.memories h2 {
-  color: #c94c6a;
-  font-size: 32px;
-}
-
-.memories p {
-  max-width: 600px;
-  margin: auto;
-  font-size: 18px;
-  line-height: 1.7;
 }
 
 footer {
@@ -114,7 +87,10 @@ footer {
 
 <body>
 
-<audio id="music" src="music.mp3"></audio>
+<!-- MÜZİK -->
+<audio id="music">
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
 
 <div class="hero fade delay1">
   <h1>Sümeyye</h1>
@@ -137,21 +113,21 @@ footer {
   <h2>Anıları Sakla</h2>
   <p>
     Bazı anlar vardır, kimse bilmez…<br>
-    Ama insanın içinde sonsuza kadar yaşar.<br><br>
-    Gülüşün, sessizliğin, bakışların…  
-    Hepsi burada.  
+    Ama kalpte kalır.<br><br>
     Çünkü bazı anılar silinmez,  
     sadece saklanır.
   </p>
 </div>
 
 <footer class="fade delay3">
-  Batuhan Kordel 🤍
+   🤍
 </footer>
 
 <script>
 function playMusic() {
-  document.getElementById("music").play();
+  const music = document.getElementById("music");
+  music.volume = 0.7;
+  music.play();
 }
 </script>
 
