@@ -2,111 +2,156 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<title>Bir Sorum Var 💌</title>
+<title>Sümeyye 🤍</title>
+
 <style>
 body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #ffd6e8, #fff);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    text-align: center;
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(#fff0f5, #ffffff);
+  color: #333;
+  text-align: center;
 }
-.box {
-    background: white;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    width: 90%;
-    max-width: 420px;
+
+/* YAVAŞ GELME ANİMASYONU */
+.fade {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeIn 1.5s forwards;
 }
-button {
-    margin: 10px;
-    padding: 12px 22px;
-    border: none;
-    border-radius: 25px;
-    background: #ff5c8a;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
+
+.delay1 { animation-delay: 0.5s; }
+.delay2 { animation-delay: 1.5s; }
+.delay3 { animation-delay: 2.5s; }
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-button:hover {
-    background: #ff3366;
+
+.hero {
+  padding: 90px 20px;
 }
-p {
-    line-height: 1.5;
+
+.hero h1 {
+  font-size: 52px;
+  color: #c94c6a;
+}
+
+.hero p {
+  font-size: 18px;
+  opacity: 0.8;
+}
+
+.hero button {
+  margin-top: 20px;
+  padding: 12px 28px;
+  font-size: 16px;
+  border: none;
+  border-radius: 30px;
+  background: #c94c6a;
+  color: white;
+  cursor: pointer;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 18px;
+  padding: 40px;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+  opacity: 0;
+  transform: scale(0.9);
+  animation: photoIn 1.5s forwards;
+}
+
+.gallery img:nth-child(1){animation-delay:0.3s}
+.gallery img:nth-child(2){animation-delay:0.6s}
+.gallery img:nth-child(3){animation-delay:0.9s}
+.gallery img:nth-child(4){animation-delay:1.2s}
+.gallery img:nth-child(5){animation-delay:1.5s}
+.gallery img:nth-child(6){animation-delay:1.8s}
+.gallery img:nth-child(7){animation-delay:2.1s}
+.gallery img:nth-child(8){animation-delay:2.4s}
+
+@keyframes photoIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.memories {
+  padding: 60px 25px;
+}
+
+.memories h2 {
+  color: #c94c6a;
+  font-size: 32px;
+}
+
+.memories p {
+  max-width: 600px;
+  margin: auto;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+footer {
+  padding: 25px;
+  font-size: 14px;
+  opacity: 0.7;
 }
 </style>
 </head>
+
 <body>
 
-<div class="box" id="content">
-    <h2>Merhaba Büşra Hanım 🌸</h2>
-    <p>Küçük bir oyuna hoş geldiniz</p>
-    <button onclick="q1()">Devam Et</button>
+<audio id="music" src="music.mp3"></audio>
+
+<div class="hero fade delay1">
+  <h1>Sümeyye</h1>
+  <p>Bu sayfa kalbimden sana…</p>
+  <button onclick="playMusic()">🎶 Müziği Aç</button>
 </div>
 
+<div class="gallery">
+  <img src="1.jpg">
+  <img src="2.jpg">
+  <img src="3.jpg">
+  <img src="4.jpg">
+  <img src="5.jpg">
+  <img src="6.jpg">
+  <img src="7.jpg">
+  <img src="8.jpg">
+</div>
+
+<div class="memories fade delay3">
+  <h2>Anıları Sakla</h2>
+  <p>
+    Bazı anlar vardır, kimse bilmez…<br>
+    Ama insanın içinde sonsuza kadar yaşar.<br><br>
+    Gülüşün, sessizliğin, bakışların…  
+    Hepsi burada.  
+    Çünkü bazı anılar silinmez,  
+    sadece saklanır.
+  </p>
+</div>
+
+<footer class="fade delay3">
+  Batuhan Kordel 🤍
+</footer>
+
 <script>
-const phone = "905421714161";
-const content = document.getElementById('content'); // <-- bu çok önemli
-
-function q1() {
-    content.innerHTML = `
-    <h2>İlk soru 🎂</h2>
-    <p>Doğum günüm hangi gün?</p>
-    <button onclick="q2(true)">3 Temmuz</button>
-    <button onclick="q2(false)">12 Mayıs</button>
-    <button onclick="q2(false)">20 Kasım</button>
-    `;
-}
-
-function q2(correct) {
-    if(correct) {
-        alert("Doğru! 🎉");
-    } else {
-        alert("Yanlış 😅");
-    }
-
-    content.innerHTML = `
-    <h2>İkinci soru 🎈</h2>
-    <p>Kaç yaşındayım?</p>
-    <button onclick="final(true)">18</button>
-    <button onclick="final(false)">20</button>
-    <button onclick="final(false)">22</button>
-    `;
-}
-
-function final(correct) {
-    if(correct) {
-        alert("Doğru! 💖");
-    } else {
-        alert("Yanlış 😔");
-    }
-
-    content.innerHTML = `
-    <h2>Bir şey söylemek istiyorum 💖</h2>
-    <p>
-    Merhaba Büşra,<br><br>
-    Ne kadar doğru kelimeleri bulabilirim bilmiyorum ama şunu biliyorum:<br>
-    Son dönemde beni en mutlu eden insan sensin.<br><br>
-    Benim için gerçekten çok değerlisin.<br>
-    Beni çok kısa sürede etkiledin ve bunu hiç fark etmeden yaptın.<br>
-    Sanırım sana âşık oldum.<br><br>
-    Sadece çok güzel olduğun için değil;<br>
-    aynı zamanda çok düşünceli, çok özel ve gerçekten harika biri olduğun için…<br><br>
-    Seni hayatımda görmek istiyorum.<br>
-    Benimle birlikte olur musun?<br>
-    Benim sevgilim olur musun? ❤️
-    </p>
-    <button onclick="send('Evet dedi 💖')">Evet ❤️</button>
-    <button onclick="send('Hayır dedi…')">Hayır 💔</button>
-    `;
-}
-
-function send(msg) {
-    window.location.href =
-    "https://wa.me/" + phone + "?text=" + encodeURIComponent(msg);
+function playMusic() {
+  document.getElementById("music").play();
 }
 </script>
 
