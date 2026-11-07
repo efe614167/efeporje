@@ -1,0 +1,314 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Little Universe ❤️</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Poppins:wght@300;400;500;600&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+ background:radial-gradient(ellipse at top,#41172f 0%,#190e22 45%,#090711 100%);
+ color:#fff;font-family:Poppins,sans-serif;overflow-x:hidden;
+}
+#stars{position:fixed;inset:0;pointer-events:none;z-index:0}
+section,.nav{position:relative;z-index:1}
+.nav{
+ position:absolute;top:0;width:100%;padding:24px;
+ text-align:center;letter-spacing:4px;color:#f4c4d9;font-size:12px
+}
+.hero{
+ min-height:100vh;display:flex;align-items:center;justify-content:center;
+ text-align:center;padding:100px 20px 60px;
+}
+.hero-content{max-width:750px}
+.small{color:#f3a9c9;letter-spacing:5px;font-size:11px;text-transform:uppercase}
+h1{
+ font-family:'Playfair Display',serif;font-size:clamp(48px,9vw,100px);
+ font-weight:500;margin:22px 0;color:#ffe5f0;
+ text-shadow:0 0 35px #ff7ab477;
+}
+.subtitle{color:#e8c9d9;font-size:15px;line-height:2}
+.heart{font-size:48px;margin:25px;animation:pulse 1.5s infinite}
+@keyframes pulse{50%{transform:scale(1.2);filter:drop-shadow(0 0 20px pink)}}
+.btn{
+ display:inline-block;margin-top:30px;padding:14px 30px;
+ border:1px solid #d987ae;border-radius:40px;
+ color:#fff;text-decoration:none;transition:.3s;
+ background:#ffffff08;cursor:pointer;font:inherit
+}
+.btn:hover{background:#bd5785;transform:translateY(-3px)}
+.section{padding:90px 20px;text-align:center}
+.section h2{
+ font-family:'Playfair Display',serif;font-size:clamp(32px,6vw,52px);
+ color:#ffd8e9;margin-bottom:15px
+}
+.desc{color:#cbaebe;font-size:14px;margin-bottom:40px}
+.counter{
+ max-width:750px;margin:35px auto;padding:35px 15px;
+ display:grid;grid-template-columns:repeat(4,1fr);gap:12px;
+ background:#ffffff0b;border:1px solid #ffffff18;
+ border-radius:25px;backdrop-filter:blur(15px)
+}
+.counter-item{
+ background:#ffffff09;padding:22px 5px;border-radius:15px
+}
+.number{font-size:clamp(25px,5vw,42px);color:#ffbdd9;font-weight:600}
+.unit{font-size:10px;letter-spacing:2px;color:#c7a6b7}
+.gallery{
+ max-width:1050px;margin:auto;display:grid;
+ grid-template-columns:repeat(2,1fr);gap:18px
+}
+.photo{
+ height:290px;position:relative;overflow:hidden;border-radius:20px;
+ border:1px solid #ffffff20;background:#29182b;cursor:pointer
+}
+.photo img{width:100%;height:100%;object-fit:cover;transition:.6s}
+.photo:hover img{transform:scale(1.08)}
+.photo span{
+ position:absolute;bottom:0;left:0;right:0;padding:20px;
+ background:linear-gradient(transparent,#000b);font-size:13px
+}
+.quote{
+ max-width:700px;margin:20px auto;padding:35px 25px;
+ border-top:1px solid #b96a91;border-bottom:1px solid #b96a91;
+ font-family:'Playfair Display',serif;font-style:italic;
+ font-size:clamp(21px,4vw,30px);line-height:1.7;color:#ffe0ec
+}
+.timeline{max-width:600px;margin:40px auto;text-align:left}
+.event{border-left:2px solid #c36c96;padding:5px 0 35px 25px;position:relative}
+.event:before{
+ content:"♥";position:absolute;left:-11px;top:0;
+ color:#ff9fc5;background:#251126;padding:2px
+}
+.event h3{color:#ffc5dd;font-size:17px;margin-bottom:8px}
+.event p{font-size:13px;color:#cbb4c2;line-height:1.8}
+.letter{
+ max-width:650px;margin:auto;padding:35px 25px;
+ background:#ffffff09;border:1px solid #ffffff20;
+ border-radius:22px;line-height:2;color:#eed5e1;
+}
+#letterText{display:none;margin-top:20px}
+footer{padding:50px 20px;text-align:center;color:#bd9caf;font-size:12px}
+footer span{color:#ff9fc5}
+#lightbox{
+ display:none;position:fixed;inset:0;background:#08050def;
+ z-index:10;align-items:center;justify-content:center;padding:20px
+}
+#lightbox img{max-width:95%;max-height:85vh;border-radius:15px}
+#lightbox button{position:absolute;top:20px;right:25px;background:none;color:white;border:0;font-size:35px;cursor:pointer}
+@media(min-width:700px){.gallery{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:450px){
+ .counter{gap:6px;padding:15px 7px}
+ .counter-item{padding:17px 2px}
+ .unit{font-size:8px;letter-spacing:1px}
+ .photo{height:210px}
+}
+</style>
+</head>
+<body>
+
+<canvas id="stars"></canvas>
+
+<div class="nav">OUR LITTLE UNIVERSE ♡</div>
+
+<section class="hero">
+ <div class="hero-content">
+  <div class="small">İki kalp · Tek hikâye</div>
+  <h1>Sen & Ben</h1>
+  <p class="subtitle">
+   Bazı insanlar hayatına girer ve her şeyi güzelleştirir.<br>
+   Benim en güzel tesadüfüm sensin.
+  </p>
+  <div class="heart">♥</div>
+  <p class="subtitle">Bizim hikâyemize hoş geldin sevgilim.</p>
+  <a href="#counter" class="btn">Hikâyemizi keşfet ↓</a>
+ </div>
+</section>
+
+<section class="section" id="counter">
+ <div class="small">Birlikte geçen zamanımız</div>
+ <h2>Her saniyesi güzel...</h2>
+ <p class="desc">5 Ekim 2026 tarihinde başlayan hikâyemiz ❤️</p>
+
+ <div class="counter">
+  <div class="counter-item"><div class="number" id="days">0</div><div class="unit">GÜN</div></div>
+  <div class="counter-item"><div class="number" id="hours">00</div><div class="unit">SAAT</div></div>
+  <div class="counter-item"><div class="number" id="minutes">00</div><div class="unit">DAKİKA</div></div>
+  <div class="counter-item"><div class="number" id="seconds">00</div><div class="unit">SANİYE</div></div>
+ </div>
+
+ <div class="quote">
+  "Dünyadaki bütün yolları tekrar yürümem gerekse,
+  yine senin olduğun yolu seçerdim."
+ </div>
+</section>
+
+<section class="section">
+ <div class="small">En güzel anılarımız</div>
+ <h2>Bizden Kareler 📸</h2>
+ <p class="desc">Her fotoğrafın arkasında ayrı bir mutluluk var.</p>
+
+ <div class="gallery" id="gallery"></div>
+ <p style="color:#bfa5b5;font-size:11px;margin-top:20px">
+  Fotoğraflara dokunarak büyük hâlini görebilirsin.
+ </p>
+</section>
+
+<section class="section">
+ <div class="small">Bizim hikâyemiz</div>
+ <h2>Birlikte, hep... ♡</h2>
+ <div class="timeline">
+  <div class="event">
+   <h3>5 Ekim 2026 ❤️</h3>
+   <p>Her şeyin başladığı o güzel gün. Hikâyemizin ilk sayfası...</p>
+  </div>
+  <div class="event">
+   <h3>İlk anılarımız</h3>
+   <p>Birlikte güldüğümüz, konuştuğumuz ve unutmak istemediğimiz anlar.</p>
+  </div>
+  <div class="event">
+   <h3>Ve daha niceleri...</h3>
+   <p>Henüz yaşamadığımız binlerce güzel anı bizi bekliyor.</p>
+  </div>
+ </div>
+</section>
+
+<section class="section">
+ <div class="small">Sadece sana</div>
+ <h2>Küçük Bir Mektup 💌</h2>
+ <div class="letter">
+  <p>Sevgilim...</p>
+  <p style="margin-top:12px">
+   Belki sana her zaman anlatamıyorum ama hayatımda olman
+   benim için çok değerli. Seninle geçen her anı saklamak,
+   her gülüşünü hatırlamak istiyorum.
+  </p>
+  <button class="btn" onclick="showLetter()">Sana bir şey söyleyeceğim ❤️</button>
+  <div id="letterText">
+   İyi ki varsın, iyi ki yollarımız kesişmiş.
+   Gelecekteki bütün güzel anılarımda senin olmanı istiyorum.
+   Seni çok seviyorum. ❤️
+  </div>
+ </div>
+</section>
+
+<footer>
+ <p>Made with <span>♥</span> for us.</p>
+ <p style="margin-top:10px">Sonsuza kadar sen & ben.</p>
+</footer>
+
+<div id="lightbox" onclick="closePhoto()">
+ <button aria-label="Kapat">×</button>
+ <img id="bigPhoto" src="" alt="Anımız">
+</div>
+
+<script>
+// SEVGİLİ OLDUĞUNUZ TARİH
+const startDate = new Date(2026, 9, 5, 0, 0, 0);
+
+function updateCounter(){
+ const now = new Date();
+ let diff = now - startDate;
+
+ if(diff < 0){
+  document.getElementById('days').textContent = "0";
+  document.getElementById('hours').textContent = "00";
+  document.getElementById('minutes').textContent = "00";
+  document.getElementById('seconds').textContent = "00";
+  return;
+ }
+
+ const d = Math.floor(diff / 86400000);
+ const h = Math.floor(diff / 3600000) % 24;
+ const m = Math.floor(diff / 60000) % 60;
+ const s = Math.floor(diff / 1000) % 60;
+
+ document.getElementById('days').textContent = d;
+ document.getElementById('hours').textContent = String(h).padStart(2,'0');
+ document.getElementById('minutes').textContent = String(m).padStart(2,'0');
+ document.getElementById('seconds').textContent = String(s).padStart(2,'0');
+}
+updateCounter();
+setInterval(updateCounter,1000);
+
+// FOTOĞRAFLAR
+// 10 fotoğrafını images klasörüne foto1.jpg ... foto10.jpg olarak koy.
+const captions = [
+ "En güzel gülüşüm ❤️",
+ "Seninle her yer güzel",
+ "Birlikte nice anılara",
+ "İyi ki sen",
+ "En sevdiğim insan",
+ "Kalbimin sahibi",
+ "Bizim küçük dünyamız",
+ "Her zaman sen",
+ "Gülüşüne bin kez aşık",
+ "Sonsuza kadar biz ❤️"
+];
+
+const gallery = document.getElementById('gallery');
+
+for(let i=1;i<=10;i++){
+ const div = document.createElement('div');
+ div.className='photo';
+ const img = document.createElement('img');
+ img.src=`images/foto${i}.jpg`;
+ img.alt=`Anımız ${i}`;
+ img.loading='lazy';
+ img.onerror=()=>{img.style.display='none';};
+ img.onclick=(e)=>{e.stopPropagation();openPhoto(img.src);};
+ const span=document.createElement('span');
+ span.textContent=captions[i-1];
+ div.append(img,span);
+ gallery.appendChild(div);
+}
+
+function openPhoto(src){
+ document.getElementById('bigPhoto').src=src;
+ document.getElementById('lightbox').style.display='flex';
+}
+function closePhoto(){
+ document.getElementById('lightbox').style.display='none';
+}
+function showLetter(){
+ document.getElementById('letterText').style.display='block';
+}
+
+// YILDIZLI GECE
+const canvas=document.getElementById('stars');
+const ctx=canvas.getContext('2d');
+let stars=[];
+function resize(){
+ canvas.width=innerWidth;
+ canvas.height=innerHeight;
+ stars=Array.from({length:110},()=>({
+  x:Math.random()*canvas.width,
+  y:Math.random()*canvas.height,
+  r:Math.random()*1.7,
+  a:Math.random(),
+  speed:Math.random()*.012+.003
+ }));
+}
+function draw(){
+ ctx.clearRect(0,0,canvas.width,canvas.height);
+ stars.forEach(s=>{
+  s.a+=s.speed;
+  ctx.beginPath();
+  ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+  ctx.fillStyle=`rgba(255,210,230,${.25+.55*Math.abs(Math.sin(s.a))})`;
+  ctx.fill();
+ });
+ requestAnimationFrame(draw);
+}
+addEventListener('resize',resize);
+resize();
+draw();
+</script>
+</body>
+</html>
+
+			
